@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
     <body>
         <header>
@@ -28,93 +27,12 @@
 
                 <div id="gifs-here"></div>
     </div>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/giphy.js"> </script>
 
 
-    <script type="text/javascript">
-
-
-        var queries = ["mercedes","toyota","dodge","ford","bmw","chevrolet"];
-
-function addCarGif() {
-    var cars = $(this).attr("data-name")
-    
-    const ApiKey = "wi8d6WPTYvkY91FIp9R4RYf34YoXAHve";
-    
-    const queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + ApiKey + "&q=" + cars + "&limit=15&offset=0&rating=PG-13&lang=en";
-    
-    
-    $.ajax({
-        URL: queryURL,
-        method: "GET"
-    })
-    
-    .then(function(response) {
-
-        console.log(queryURL);
-        console.log(response);
-
-        var results = response.data;
-
-        for (var i = 0; i < results.length; i++) {
-
-            var carDiv = $("<div class='car'>");
-            
-            var pRating = $("<p>").text("Rating: " + results[i].rating);
-            
-            var carImage = $("<img>").attr('src', results[i].images.fixed_height.url);
-    
-            carDiv.append(pRating);
-            carDiv.append(carImage);
-
-            $("#gifs-here").prepend(carDiv);
-        }
-
-        
-    });
-};
-
-addCarGif();
-
-// function renderButton() {
-
-// $("#buttons-view").empty();
-
-// for (var i = 0; i < queries.length; i++) {
-
-// var a = $("<button>");
-
-// a.addClass("car-btn");
-
-// a.attr("data-name", queries[i]);
-
-// a.text(queries[i]);
-
-// const button2 = $("<button>").addClass("car-btn").attr('data-name', queries[i]).text(queries[i]);
-
-// $("#buttons-view").append(a);
-
-//   }
-// };
-
-
-
-// $("#run-search").on("click", function(event) {
-
-// event.preventDefault();
-
-// var cars = $("#car-input").val().trim();
-
-// queries.push(cars);
-
-// renderButton();
-
-// });
-
-//  $(document).on("click", ".car-btn", addCarGif);
-
-//  renderButton();
-        </script>
 </body>
 </html>

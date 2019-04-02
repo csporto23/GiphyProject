@@ -1,17 +1,20 @@
 var queries = ["mercedes","toyota","dodge","ford","bmw","chevrolet"];
 
 function addCarGif() {
-    var cars = $(this).attr("data-car")
+    var cars = $(this).attr("data-name")
     
     const ApiKey = "wi8d6WPTYvkY91FIp9R4RYf34YoXAHve";
     
-    const queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + ApiKey + "&q=" + cars + "&limit=15&offset=0&rating=PG-13&lang=en";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + ApiKey + "&q=" + cars + "&limit=15&offset=0&rating=PG-13&lang=en";
     
     
     $.ajax({
-        URL: queryURL,
+        url: queryURL,
         method: "GET"
     }).then(function(response) {
+
+        console.log(queryURL);
+        console.log(response);
 
         var results = response.data;
 
@@ -30,44 +33,45 @@ function addCarGif() {
         }
 
         
-    })
-};
-
-function renderButton() {
-
-$("#buttons-view").empty();
-
-for (var i = 0; i < queries.length; i++) {
-
-var a = $("<button>");
-
-a.addClass("car-btn");
-
-a.attr("data-car", queries[i]);
-
-a.text(queries[i]);
-
-const button2 = $("<button>").addClass("car-btn").attr('data-car', queries[i]).text(queries[i]);
-
-$("#buttons-view").append(a);
-
-  }
+    });
 };
 
 
+ function renderButton() {
 
-$("#run-search").on("click", function(event) {
+ $("#buttons-view").empty();
 
-event.preventDefault();
+ for (var i = 0; i < queries.length; i++) {
 
-var carsInput = $("#car-input").val().trim();
+ var a = $("<button>");
 
-queries.push(carsInput);
+ a.addClass("car-btn");
 
-renderButton();
+ a.attr("data-name", queries[i]);
 
-});
+ a.text(queries[i]);
 
-$(document).on("click", ".car-btn", addCarGif);
+ const button2 = $("<button>").addClass("car-btn").attr('data-name', queries[i]).text(queries[i]);
 
-renderButton();
+ $("#buttons-view").append(a);
+
+   }
+ };
+
+
+
+ $("#run-search").on("click", function(event) {
+
+ event.preventDefault();
+
+ var cars = $("#car-input").val().trim();
+
+ queries.push(cars);
+
+ renderButton();
+
+ });
+
+  $(document).on("click", ".car-btn", addCarGif);
+
+  renderButton();
