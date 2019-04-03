@@ -1,4 +1,4 @@
-var queries = ["mercedes","toyota","dodge","ford","bmw","chevrolet"];
+var queries = ["toyota","dodge","ford","chevrolet"];
 
 function addCarGif() {
     var cars = $(this).attr("data-name")

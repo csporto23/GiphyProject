@@ -1,3 +1,53 @@
 .car-btn {
     margin: 4px;
 }
+
+header {
+    text-align: center;
+    background-color: aquamarine;
+    margin: 0%;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    font-size: 40px;
+}
+
+body {
+    margin: 0%;
+}
+
+.container {
+    margin-top: 1rem;
+    font-size: 20px;
+}
+
+#cars-form {
+    text-align: right;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+button {
+    font-size: 20px;
+}
+button:hover {
+    background-color: aquamarine;
+    border-radius: 4px;
+}
+
+#buttons-view {
+    margin-left: 1rem;
+}
+
+#run-search {
+    font-size: 20px;
+}
+
+#run-search:hover {
+    background-color: orangered;
+    border-radius: 4px;
+}
+
+#gifs-here {
+    margin-left: 2rem;
+}
